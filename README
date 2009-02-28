@@ -70,7 +70,7 @@ Appearance
 
 1. A calendar.css file is generated and used by the plugin (public/stylesheets/calendar.css). Edit this file to customize appearance of the calendar.
 
-2. Weight of the calendar is not restricted. It occupies the full width of its container. 
+2. Width of the calendar is not restricted. It occupies the full width of its container. 
 
 3. Every date (rectangle holding each date - table's TD) has a unique ID of the form 'date_1','date_12' etc. This also can be used for extra styling or may be behaviour control with UJS etc. 
 
