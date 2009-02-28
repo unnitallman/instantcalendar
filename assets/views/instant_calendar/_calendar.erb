@@ -1,0 +1,69 @@
+<% time = Time.parse("#{year}/#{month}/1") %>
+<% prev_month = time.months_ago(1) %>
+<% next_month = time.months_since(1) %>
+<% first_day = time.beginning_of_month %>
+<% n = Time.days_in_month(time.month,time.year)%>
+
+<li id="calendar">
+				<h2>Calendar</h2>
+				<div id="calendar_wrap">
+					<table summary="Calendar">
+						<caption>
+						<%= time.strftime("%B") + " " + year.to_s%>
+						</caption>
+						<thead>
+							<tr>
+								<th abbr="Monday" scope="col" title="Monday">M</th>
+								<th abbr="Tuesday" scope="col" title="Tuesday">T</th>
+								<th abbr="Wednesday" scope="col" title="Wednesday">W</th>
+								<th abbr="Thursday" scope="col" title="Thursday">T</th>
+								<th abbr="Friday" scope="col" title="Friday">F</th>
+								<th abbr="Saturday" scope="col" title="Saturday">S</th>
+								<th abbr="Sunday" scope="col" title="Sunday">S</th>
+							</tr>
+						</thead>
+						
+            <tbody>
+							<tr>
+								<%padding = (first_day.wday+6)%7%>
+								<%count = padding + 1 %>
+								<%if padding != 0%>
+									<td colspan="<%= padding %>" class="pad">&nbsp;</td>
+								<%end%>
+              	<%1.upto(n) do |i|%>
+									<%if highlight_today and today?(i)%>
+										<%url = dates[i] %>
+										<%if url%>
+											<td id="date_<%=i%>" class="today"><%=url%></td>
+										<%else%>
+											<td id="date_<%=i%>" class="today"><%=i%></td>
+										<%end%>
+								  <%else%>
+										<%url = dates[i] %>
+										<%if url%>
+											<%if highlight_dates.include?(i)%>
+												<td class="highlight" id="date_<%=i%>" ><%=url%></td>
+											<%else%>
+												<td id="date_<%=i%>" ><%=url%></td>
+											<%end%>
+										<%else%>
+											<%if highlight_dates.include?(i)%>
+												<td class="highlight" id="date_<%=i%>" ><%=i%></td>
+											<%else%>
+												<td id="date_<%=i%>" ><%=i%></td>
+											<%end%>
+										<%end%>
+									<%end%>
+									<%if count%7 ==0%>
+										<tr/>
+									<%end%>
+									<%count = count + 1%>
+							  <%end%>
+							<%if count%7 !=0%>
+								<tr/>
+							<%end%>
+						</tbody>
+
+				</table>
+				</div>
+			</li>
