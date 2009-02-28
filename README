@@ -7,7 +7,32 @@ Displays a simple HTML calendar. Appearance and behaviour of the calendar is ful
 Example
 =======
 
-Example goes here.
+1.Displays the calendar of current month & year
 
+<%= show_calendar %>    
+
+2. Displays the calendar of March, current year 
+
+<%= show_calendar :month => 3 %>
+
+3. Displays the calendar of March, 1985
+
+<%= show_calendar :month => 3, :year => 1985 %>
+
+4. Highlight today's date
+
+<%= show_calendar :highlight_today => true %>
+
+5. Highlighting selected dates
+
+<%= show_calendar :highlight_dates => [10,15,28] %>
+
+6. Custom text for selected dates.
+
+<%= show_calendar :dates => { 5 => "xyz", 26 => "abc" } %>
+
+In the calendar, date 5 will be replaced by 'xyz', and 26 by 'abc'
+
+ 
 
 Copyright (c) 2009 [Unnikrishnan KP], released under the MIT license
