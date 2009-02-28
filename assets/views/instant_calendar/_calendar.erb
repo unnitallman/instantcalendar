@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "calendar" %>
+
 <% time = Time.parse("#{year}/#{month}/1") %>
 <% prev_month = time.months_ago(1) %>
 <% next_month = time.months_since(1) %>
@@ -5,7 +7,6 @@
 <% n = Time.days_in_month(time.month,time.year)%>
 
 <li id="calendar">
-				<h2>Calendar</h2>
 				<div id="calendar_wrap">
 					<table summary="Calendar">
 						<caption>

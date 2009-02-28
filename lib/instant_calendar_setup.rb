@@ -24,6 +24,11 @@ module InstantCalendar #:nodoc
         File.join(File.dirname(__FILE__), "../assets/views/instant_calendar/_calendar.erb"),
         File.join(RAILS_ROOT, "app/views/instant_calendar/", view_file)
       )
+      
+			FileUtils.cp_r(
+        File.join(File.dirname(__FILE__), "../assets/stylesheets/calendar.css"),
+        File.join(RAILS_ROOT, "public/stylesheets/calendar.css")
+      )
       puts "================================DONE==========================================="
     end
   end
